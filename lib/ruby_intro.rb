@@ -37,11 +37,24 @@ end
 def binary_multiple_of_4? s
   # YOUR CODE HERE
   #/^[01]*00?/.match(s) && s.to_i % 4 == 0  # pattern does not take into account all binary numbers e.g. 0
-  /^[01]+?/.match(s) && s.to_i % 4 == 0  # checks if string represents a binary number AND if binary number is multiple of 4
+  /^[01]+$/.match(s) && s.to_i % 4 == 0  # checks if string represents a binary number AND if binary number is multiple of 4
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  # YOUR CODE HERE
+  attr_accessor :isbn, :price  # need to read and write ISBN number and price
+  
+  def initialize(isbn, price)  # initialize attributes when the object is instantiated
+    #raise ArgumentError if isbn == "" or price <= 0  # also works but more vague (cannot tell what is causing the Exception)
+    raise(ArgumentError, 'Invalid ISBN number') if isbn == ''
+    raise(ArgumentError, 'Price cannot be less than or equal to zero') if price <= 0
+    @isbn = isbn
+    @price = price
+  end
+  
+  def price_as_string
+    "$%.2f" % price  # formats price with a leading dollar sign and to 2 decimal places
+  end
 end
