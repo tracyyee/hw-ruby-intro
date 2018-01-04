@@ -43,5 +43,18 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  # YOUR CODE HERE
+  attr_accessor :isbn, :price  # need to read and write ISBN number and price
+  
+  def initialize(isbn, price)  # initialize attributes when the object is instantiated
+    #raise ArgumentError if isbn == "" or price <= 0  # also works but more vague (cannot tell what is causing the Exception)
+    raise(ArgumentError, 'Invalid ISBN number') if isbn == ''
+    raise(ArgumentError, 'Price cannot be less than or equal to zero') if price <= 0
+    @isbn = isbn
+    @price = price
+  end
+  
+  def price_as_string
+    "$%.2f" % price  # formats price with a leading dollar sign and to 2 decimal places
+  end
 end
