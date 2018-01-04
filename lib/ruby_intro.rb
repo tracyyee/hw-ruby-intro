@@ -36,7 +36,7 @@ end
 
 def binary_multiple_of_4? s
   # YOUR CODE HERE
-  #/^[01]*00?/.match(s) && s.to_i % 4 == 0  # pattern does not take into account all binary numbers e.g. 0
+  #/^[01]*00$/.match(s) && s.to_i % 4 == 0  # pattern does not take into account all binary numbers e.g. 0
   /^[01]+$/.match(s) && s.to_i % 4 == 0  # checks if string represents a binary number AND if binary number is multiple of 4
 end
 
