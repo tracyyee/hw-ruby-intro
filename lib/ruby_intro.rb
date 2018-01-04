@@ -4,14 +4,18 @@
 
 def sum arr
   # YOUR CODE HERE
+  arr.inject(0, :+)
 end
 
 def max_2_sum arr
   # YOUR CODE HERE
+  (Array.new(arr.max(2))).inject(0, :+)
 end
 
 def sum_to_n? arr, n
   # YOUR CODE HERE
+  #(arr.combination(2).to_a.each { |set| print set, "--"})
+  (arr.combination(2).to_a.each).any? { |sum| sum[0] + sum[1] == n}
 end
 
 # Part 2
